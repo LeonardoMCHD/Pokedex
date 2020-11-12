@@ -1,0 +1,23 @@
+import React, { useState, useEffect } from "react";
+import ListBox from "../Components/ListBox";
+import { GetPokemon } from "../Utils/ApiPokemons";
+
+export default function index() {
+  const [ApiPokemonData, setApiPokemonData] = useState([]);
+
+  useEffect(() => {
+    GetPokemon()
+      .then((resultado) => {
+        setApiPokemonData(resultado.data.results);
+      })
+      .catch((error) => {
+        // tratar error
+      });
+  }, []);
+
+  return (
+   <div className="App">
+     <ListBox listData={ApiPokemonData} />
+   </div>
+  );
+}
