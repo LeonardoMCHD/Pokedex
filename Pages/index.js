@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PokemonTile from "../Components/PokemonCard";
 import ListPokemon from "../Utils/ApiPokemons";
 
-const GridWrapper = styled.div`
+const Qualquer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,16 +17,15 @@ const GridWrapper = styled.div`
     useEffect(() => {
       ListPokemon().then( (success) => {
         setListaPokemon(success.results);
-        console.log("Deu Bom", success);
-      })
+              })
     }, [])
 
     return (
-      <GridWrapper>
+      <Qualquer>
         {ListaPokemon.map((pokemon) => {
           return <PokemonTile pokemon={pokemon} />
         })}
         
-      </GridWrapper>
+      </Qualquer>
     );
   }

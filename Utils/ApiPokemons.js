@@ -8,3 +8,4 @@ export default async function ListPokemon(){
          .catch((error) => reject(error));
     });
 }
+
